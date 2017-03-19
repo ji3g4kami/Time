@@ -1,30 +1,25 @@
 #! /usr/bin/env python3
+# stopwatch.py - A simple stopwatch program.
 
 import time
 
-instructions = ' '
-time_passed = 0
+# Display the program's instructions.
+print('Press ENTER to begin. Afterwards, press ENTER to "click" the stopwatch. Press Ctrl-C to quit.')
+input()                    # press Enter to begin
+print('Started.')
+startTime = time.time()    # get the first lap's start time
+lastTime = startTime
+lapNum = 1
 
-
-while True:
-	instructions = input('Enter "start" to start counting:')
-	if instructions == 'start':
-		startTime = time.time()
-
-	instructions = input('Enter "pasue" to pause counting, "end" to stop counting:')
-	if instructions == 'pause':
-		pauseTime = time.time()
-		time_passed += round(pauseTime - startTime, 2)
-		print(str(time_passed) + ' seconds has passed')
-		continue
-	elif instructions == 'end':
-		endTime = time.time()
-		time_passed += round(endTime - startTime, 2)
-		break
-
-print(str(time_passed) + ' seconds has passed')
-
-
-	
-
-	
+# Start tracking the lap times.
+try:
+    while True:
+        input()
+        lapTime = round(time.time() - lastTime, 2)
+        totalTime = round(time.time() - startTime, 2)
+        print('Lap #%s: %s (%s)' % (lapNum, totalTime, lapTime), end='')
+        lapNum += 1
+        lastTime = time.time() # reset the last lap time
+except KeyboardInterrupt:
+    # Handle the Ctrl-C exception to keep its error message from displaying.
+    print('\nDone.')
