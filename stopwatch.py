@@ -15,6 +15,7 @@ while True:
 	if instructions == 'pause':
 		pauseTime = time.time()
 		time_passed += round(pauseTime - startTime, 2)
+		print(str(time_passed) + ' seconds has passed')
 		continue
 	elif instructions == 'end':
 		endTime = time.time()
