@@ -1,0 +1,13 @@
+{
+    "applinks": {
+      "apps": [],
+      "details": [
+        {
+          "appID": “ND2LGZT6B5.com.dengli.NFCProductScanner",
+          "paths": [
+            "*"
+          ]
+        }
+      ]
+    }
+  }
